@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Таблица{% endblock %}
+
+{% block content %}
+
+	<nav class="navbar navbar-dark navbar-expand-lg bg-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown">
+				<a class="navbar-brand nav-link dropdown-toggle">
+					<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">yep</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Еще один элемент</a>
+				</div>
+			  </li>
+		</ul>
+	</nav>
+	<table>
+		<tbody class="table table-bordered table-dark">
+			<tr><th>Индекс</th><th>Вопрос</th><th>Ответ</th></tr>
+		</tbody>
+	</table>	
+	
+{% endblock %}

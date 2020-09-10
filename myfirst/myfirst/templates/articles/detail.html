@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{article.article_title}}{% endblock %}
+
+{% block content %}
+
+{% if commands %}
+	{{commands}}
+{% endif %}
+
+{% endblock %}
