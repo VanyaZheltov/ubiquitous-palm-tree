@@ -18,10 +18,15 @@
 			  </li>
 		</ul>
 	</nav>
-	<table>
+	{% if commands %}
+	<table style='width:100%'>
 		<tbody class="table table-bordered table-dark">
-			<tr><th>Индекс</th><th>Вопрос</th><th>Ответ</th></tr>
+			<tr><th>Вопрос</th><th>Ответ</th></tr>
+			{% for command in commands %}
+				<tr><td>{{command.question}}</td><td>{{command.answer}}</td></tr>
+			{% endfor %}
 		</tbody>
 	</table>	
+	{% endif %}
 	
 {% endblock %}

@@ -4,15 +4,18 @@ from django.urls import reverse
 from .models import Dialog
 import random
 
+
+
 def index(request):
-	testdata = [str(word)
-				for word in range(5)]
-	return render(request, 'articles/list.html', {'data':testdata})
+	commands = Dialog.objects.all()
+	return render(request, 'articles/list.html', {'commands': commands})
 
 def detail(request):
 	try:
+		commands = Dialog.objects.all()
 		commands = {
-
+		command.question: command.answer
+		for command in commands
 		}
 		return render(request, 'articles/detail.html', {'commands': commands})
 	except:

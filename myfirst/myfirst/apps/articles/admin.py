@@ -1,4 +1,7 @@
 from django.contrib import admin
 from .models import Dialog
 
-admin.site.register(Dialog)
+class PostAdmin(admin.ModelAdmin):  
+    list_display = ('question', 'answer') 
+
+admin.site.register(Dialog, PostAdmin)
