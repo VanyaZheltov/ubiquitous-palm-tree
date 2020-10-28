@@ -1,32 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %}Таблица{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
 
-	<nav class="navbar navbar-dark navbar-expand-lg bg-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown">
-				<a class="navbar-brand nav-link dropdown-toggle">
-					<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">yep</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Еще один элемент</a>
-				</div>
-			  </li>
-		</ul>
+    <nav class="navbar navbar-dark navbar-expand-lg footer" >	
+		<div class="dropdown">
+          <img class="icon" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1024px-Bootstrap_logo.svg.png">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
 	</nav>
-	{% if commands %}
-	<table style='width:100%'>
-		<tbody class="table table-bordered table-dark">
-			<tr><th>Вопрос</th><th>Ответ</th></tr>
-			{% for command in commands %}
-				<tr><td>{{command.question}}</td><td>{{command.answer}}</td></tr>
-			{% endfor %}
-		</tbody>
-	</table>	
-	{% endif %}
+	<div class="content">
+	    <p>ttt</p>
+	</div>
+	<div class="basement fixed-bottom">
+	    <p>test text</p>
+	</div>
+
 	
 {% endblock %}

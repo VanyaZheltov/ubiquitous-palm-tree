@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}{{product.name}}|Платёж{% endblock %}
+{% block content %}
+    
+    <script src="https://kassa.yandex.ru/checkout-ui/v2.js"></script>
+    <div style="height: 90%; background: whitesmoke;">
+        <div class="emaildiv">
+            <label id="email-adress">Email address</label>
+            <input type="text" @input="handleInput($event.target.value)" class="form-control" id="email" placeholder="Введите email" name="email" />
+            <label id="tooltiplabel">Ваш email не будет распространён</label>
+        </div>
+        <button type="submit" class="btn btn-primary buybutton" data-toggle="modal" data-target="#exampleModal">
+            Оплатить
+        </button>
+   </div>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-dark">
+            <h5 class="modal-title" style="color: whitesmoke;" id="exampleModalLabel">Оплата</h5>
+            <button type="button" class="close" data-dismiss="modal" style="color: whitesmoke;" aria-label="Close">
+              <span aria-hidden="true" style="color: whitesmoke;">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body bg-dark">
+             <div id="payment-form" style="height:100%;"></div>
+                {% if conf_token %}
+                    <script>
+                        //Инициализация виджета. Все параметры обязательные.
+                        const checkout = new window.YandexCheckout({
+                            confirmation_token: "{{conf_token}}", //Токен, который перед проведением оплаты нужно получить от Яндекс.Кассы
+                            return_url: 'http://127.0.0.1:8000/order/result/{{id}}/',
+                            newDesign: true,//Ссылка на страницу завершения оплаты
+                            customization: {
+                                //Настройка цветовой схемы, минимум один параметр, значения цветов в HEX
+                                colors: {
+                                    //Цвет акцентных элементов: кнопка Заплатить, выбранные переключатели, опции и текстовые поля
+                                    controlPrimary: '#000000',
+                                    background: '#1E1C1B'//Значение цвета в HEX
+                                }
+                            },
+                            error_callback(error) {
+                                alert('Произошла ошибка')
+                            }
+                        });
+                            
+                
+                                    
+                                //Отображение платежной формы в контейнере
+                        checkout.render('payment-form');
+                            
+                    </script>
+                    {% else %}
+                        <p>Ошибка платежа</p>
+                    {% endif %}
+          </div>
+          <div class="modal-footer bg-dark">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(':input[type="submit"]').prop('disabled', true);
+        })
+    </script>
+    <script>
+        let pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
+
+        let app = new Vue({
+          el: ".emaildiv",
+            
+          data: function() {
+            return {
+              inputData: "",
+              message: ""
+            };
+          },
+        
+          methods: {
+            handleInput(value) {
+              this.inputData = value;
+              if(value.search(pattern) == 0){
+                    $('#email').css('border-width', "2px")
+                    $('#email').css('border-color', '#44F211')
+                    $(':input[type="submit"]').prop('disabled', false);
+              }else{
+                    $('#email').css('border-width', "2px")
+                    $('#email').css('border-color', 'red')
+              }
+            }
+        }
+    });
+
+    </script>
+    <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+
+    <!-- BootstrapValidator CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if product %}
+        {{product.name}}
+    {% else %}
+        Ошибка!
+    {% endif %}
+{% endblock %}
+    
+{% block content %}
+    <style>
+        .carousel-inner {
+            width: 50%;
+            margin: auto;
+        }
+        img{
+            display: block;
+            height: auto;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .carousel-indicators{
+            margin-top: 0px;
+            padding-top: 0%;
+        }
+        p.desc{
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+        }
+    </style>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    {% if product %}
+        <div style = "background: #1E1C1B;">
+            <div>
+                <h1 class="dividerdiv" style="color: whitesmoke;">{{product.name}}</h1>
+            </div>
+            <div id="myCarousel" style="height: 100%;" class="carousel slide" data-ride="carousel">
+                <!--<ol class="carousel-indicators">
+                    {% for i in product.images.all %}
+                        {% if forloop.counter == 1 %}
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        {% else %}
+                            <li data-target="#myCarousel" data-slide-to="{{forloop.counter}} - 1" class=""></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>-->
+                <div class="carousel-inner">
+                {% for img in product.images.all %}
+                    {% if forloop.counter == 1 %}
+                        <div class="carousel-item active">
+                    {% else %}
+                        <div class="carousel-item">
+                    {% endif %}
+                            <img style="max-height: 500px; margin-top: 0px;" src="{{img.image.url}}">
+                        </div>
+                {% endfor %}
+                
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Следующий</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Предыдущий</span>
+                </a>
+            </div>
+            <img style="max-height: 500px; margin-top: 0px;" src="{{product.photo.url}}">
+
+            <p class="dividerdiv desc" style="color: whitesmoke; text-align: center;">{{product.description}}</p>
+            <a href="{% url 'shop:order' product.id %}" style="width: 20%; margin-left: 40%;" class="btn btn-success">{{product.price}} &#8381; &raquo;</a>
+        </div>
+    {% else %}
+        <div class="jumbotron">
+          <h1 class="display-4">Товар не найден!</h1>
+          <p class="lead">Но вы всё ещё можете вернуться назад.</p>
+          <hr class="my-4">
+          <p>Просто кликните на эту кнопку</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href=".." role="button">Вернуться</a>
+          </p>
+        </div>
+    {% endif %}
+{% endblock %}

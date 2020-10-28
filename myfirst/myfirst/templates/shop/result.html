@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+    Результат платежа
+{% endblock %}
+{% block content %}
+    <main role="main" style="margin-bottom: 15%;">
+        <!--Форма результата-->
+            <div class="col d-flex justify-content-center">
+                <div class="card" style="width: 55%; margin-top: 2%; border-top-left-radius: 2%; border-top-right-radius: 2%;" >
+                    <div class="card-header" style="width: 100%;">
+                        {% if result.status == "canceled" %}
+                            <h5 class="card-title text-center">Платёж отменён</h5>
+                        {% else %}
+                            <h5 class="card-title text-center">Платёж завершён</h5>
+                        {% endif %}
+
+                    </div>
+                    <div class="card-body" style="width: 100%">
+                        <h5 class="card-title text-center">Описание платежа</h5>
+                        <p class="card-text text-center">{{result.description}}</p>
+                        <h5 class="card-title text-center">Цена</h5>
+                        <p class="card-text text-center">{{result.amount.value}} {{result.amount.currency}}</p>
+
+                        <div class="col d-flex justify-content-center">
+                            {% if result.status == "canceled" %}
+                                <a href="{% url 'shop:index' %}" class="btn btn-lg btn-danger">На главную</a>
+                            {% else %}
+                                <a href="{% url 'shop:index' %}" class="btn btn-lg btn-primary">На главную</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <!-------------------->
+    </main>
+{% endblock %}

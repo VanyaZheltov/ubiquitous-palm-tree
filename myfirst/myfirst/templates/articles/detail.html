@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{article.article_title}}{% endblock %}
+{% block title %}Команды{% endblock %}
 
 {% block content %}
 
 {% if commands %}
-	{{commands}}
+	<p>{{commands}}</p>
 {% endif %}
 
 {% endblock %}

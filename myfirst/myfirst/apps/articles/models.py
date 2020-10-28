@@ -8,4 +8,3 @@ class Dialog(models.Model):
 	class Meta:
 		verbose_name = 'Диалог'
 		verbose_name_plural = 'Диалоги'
-

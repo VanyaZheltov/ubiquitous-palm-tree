@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+Результат оплаты
+{% endblock title %}
+{% block content %}
+    {% if result %}
+        <p>{{result}}</p>
+    {% else %}
+        <p>Здесь ничего нет</p>
+    {% endif %}
+{% endblock content %}

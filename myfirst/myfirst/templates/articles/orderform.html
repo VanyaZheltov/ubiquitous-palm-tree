@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Платёж{% endblock %}
+{% block content %}
+    <script src="https://kassa.yandex.ru/checkout-ui/v2.js"></script>
+
+    <!--HTML-элемент, в котором будет отображаться платежная форма-->
+    <div id="payment-form"></div>
+    {% if conf_token %}
+        <script>
+            //Инициализация виджета. Все параметры обязательные.
+            const checkout = new window.YandexCheckout({
+                confirmation_token: "{{conf_token}}", //Токен, который перед проведением оплаты нужно получить от Яндекс.Кассы
+                return_url: '/tables/order/result/?id={{id}}',
+                newDesign: true,//Ссылка на страницу завершения оплаты
+                customization: {
+                    //Настройка цветовой схемы, минимум один параметр, значения цветов в HEX
+                    colors: {
+                        //Цвет акцентных элементов: кнопка Заплатить, выбранные переключатели, опции и текстовые поля
+                        controlPrimary: '#000000',
+                        background: '#1E1C1B'//Значение цвета в HEX
+                    }
+                },
+                error_callback(error) {
+                    alert('Произошла ошибка')
+                }
+            });
+                
+    
+                        
+                    //Отображение платежной формы в контейнере
+            checkout.render('payment-form');
+                
+        </script>
+        {% else %}
+            <p>Ошибка платежа</p>
+        {% endif %}
+{% endblock %}

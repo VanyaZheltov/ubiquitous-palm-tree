@@ -19,6 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_URL = '/media/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -28,18 +31,21 @@ SECRET_KEY = 'a%mg83pwg9nsgrb)d6k!vs35gfoh*+k$_q6z$^tmc9jnict-7g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['englishpush.ru', 'englishpush.online', 'akudakova.beget.tech', '127.0.0.1', '51ce1dce1580.ngrok.io']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
-    'grappelli',
+    'shop.apps.ShopConfig',
+    'bot.apps.BotConfig',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'rest_framework',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]

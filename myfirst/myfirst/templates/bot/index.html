@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Авторизация
+{% endblock title %}
+
+{% block content %}
+    <div class="form">
+        <p>Div для замены</p>
+    </div>
+    <div class="2div">
+        <p>заменяющий див</p>
+    </div>
+    <script>
+        $('.2div').hide();
+        $('.form').addClass('panel')
+        var htmlContent = $('.2div').html();
+        $('.form').html(htmlContent);
+        $('.form').removeClass('form');
+        $('.2div').remove();
+
+    </script>
+{% endblock %}
