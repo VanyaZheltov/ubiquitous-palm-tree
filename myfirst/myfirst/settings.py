@@ -31,8 +31,7 @@ SECRET_KEY = 'a%mg83pwg9nsgrb)d6k!vs35gfoh*+k$_q6z$^tmc9jnict-7g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['englishpush.ru', 'englishpush.online', 'akudakova.beget.tech', '127.0.0.1', '51ce1dce1580.ngrok.io']
-
+ALLOWED_HOSTS = ['englishpush.ru', 'englishpush.online', 'akudakova.beget.tech', '127.0.0.1', 'e503b5b56a86.ngrok.io']
 
 # Application definition
 
@@ -132,6 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 

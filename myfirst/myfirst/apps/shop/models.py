@@ -26,6 +26,10 @@ class IndexSlide(models.Model):
 class Article(models.Model):
     header = models.CharField("Заголовок статьи", max_length = 100)
     text = models.TextField("Текст")
+    author = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+    )
     preview = models.ImageField("Превью", upload_to="articles")
     pub_date = models.DateField("Время публикации", auto_now = True)
     class Meta:

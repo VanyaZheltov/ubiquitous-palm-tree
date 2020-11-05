@@ -1,143 +1,23 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru" style="height: 100%;">
 <head>
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png">
-    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png">
+  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>{% block title %}Мой сайт{% endblock %}</title>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700' rel='stylesheet' type='text/css'>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
-
-    <style>
-        body {
-          padding-top: 3rem;
-          padding-bottom: 3rem;
-          color: #5a5a5a;
-        }
-        
-        .dividerdiv{
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-        .darktheme{
-            background: #1E1C1B;
-        }
-        .footer{
-            background: #1E0C1B;
-        }
-        .basement{
-          background: #1E0C1B;  
-        }
-        .icon{
-            width: 30px;
-            height: 30px;
-        }
-        .no-gutters {
-          margin-right: 0;
-          margin-left: 0;
-        
-          > .col,
-          > [class*="col-"] {
-            padding-right: 0;
-            padding-left: 0;
-          }
-        }
-        ::-webkit-scrollbar{
-            width:6px;
-        }
-        ::-webkit-scrollbar-thumb{
-            border-width:1px 1px 1px 2px;
-            border-color: #777;
-            background-color: #aaa;
-            }
-        ::-webkit-scrollbar-thumb:hover{
-            border-width: 1px 1px 1px 2px;
-            border-color: #555;
-            background-color: #777;
-        }
-        ::-webkit-scrollbar-track{
-            border-width:0;
-        }
-        ::-webkit-scrollbar-track:hover{
-            border-left: solid 1px #aaa;
-            background-color: #eee;
-        }
-        
-        @media screen and (min-width: 1240px)  {
-            #email{
-                width: 33%;
-            }
-            .headerimg{
-                width: 100%;
-                height: 30%;
-            }
-            .emaildiv{
-                padding-left: 40%;
-            }
-            #email-adress{
-                padding-left: 10%; 
-                padding-top: 5%;
-            }
-            #tooltiplabel{
-                padding-left: 1%; 
-            }
-            .buybutton{
-                margin-left: 40%;
-                width: 20%;
-            }
-        }
-        @media screen and (max-width: 768px) {
-            .headerimg{
-                width: 100%;
-                height: 50%;
-            }
-            #email{
-                width: 79%;
-            }
-            .emaildiv{
-                padding-left: 20%;
-            }
-            #email-adress{
-                padding-left: 20%; 
-                padding-top: 10%;
-            }
-            #tooltiplabel{
-            }
-            .buybutton{
-                margin-left: 20%;
-                width: 64%;
-            }
-        }
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-            #email{
-                width: 33%;
-            }
-            .emaildiv{
-                padding-left: 35%;
-            }
-            #email-adress{
-                padding-left: 10%; 
-                padding-top: 5%;
-            }
-            #tooltiplabel{
-                padding-left: 1%; 
-            }
-            .buybutton{
-                margin-left: 40%;
-                width: 20%;
-            }
-        }
-
-
-    </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="{% static 'shop/css/index.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
 </head>
 <body style="height: 100%;" class="darktheme">
     <header>
@@ -154,6 +34,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'shop:posts' %}">Статьи</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">О нас</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -169,7 +52,13 @@
 	  <!-- FOOTER -->
     <footer class="container">
         <p class="float-right"><a href="#">↑Наверх↑</a></p>
-        <p>&copy; 2020 Englishpush. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p id="about">&copy; Englishpush. <span id="startyear">2020</span><span id="currentyear"></span> &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>Магазин EnglishPush.</p>
     </footer>
+    <script>
+        if(Date().getFullYear() != document.getElementById("startyear").innerHTML){
+            document.getElementById("currentyear").innerHTML = "-" + new Date().getFullYear();
+        }
+    </script>
 </body>
 </html>

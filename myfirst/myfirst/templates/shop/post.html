@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}
     {{post.header}}
 {% endblock %}
-{% block content %}
-    <main role="main">
-        <h1 class="text-center" style="color: white;">{{post.header}}</h1>
-        <div class="col d-flex justify-content-center">
-            <img style="max-width: 500px; max-height: 500px;" src="{{post.preview.url}}">
-        </div>
-        <div class="col d-flex justify-content-center">
-            <p class="text-center" style="color: white; margin-left: 10%; margin-right: 10%;">{{post.text}}</p>
-        </div>
-        <p class="text-center" style="color: white;"><i class="far fa-clock"></i> {{post.pub_date}}</p>
 
+{% block content %}
+
+    <main role="main">
+        <div> 
+            <h1 class="text-center" style="color: white;">{{post.header}}</h1>
+            <div class="col d-flex justify-content-center">
+                <img style="max-width: 500px; max-height: 500px;" src="{{post.preview.url}}">
+            </div>
+            <hr class="featurette-divider">
+            <div class="col d-flex justify-content-center">
+                <p class="text-center" style="color: white; margin-left: 15%; margin-right: 15%;">{{post.text}}</p>
+            </div>
+            <p class="text-center" style="color: white;"><i class="far fa-clock"></i> {{post.pub_date}} | <i class="fa fa-user" aria-hidden="true"></i> {{post.author}}</p>
+            <hr class="featurette-divider">
+            <div class="col d-flex justify-content-center">
+                <a type="button" style="color: white;" class="btn btn-primary btn-lg" onclick="window.history.back()"><li class="far fa-arrow-left"></li> Назад</a>
+            </div>
+        </div>
     </main>
 {% endblock %}

@@ -30,7 +30,7 @@ def get_username(user_id: int):
     first_name=user_get['first_name']
     return first_name
 
-def AdminHandler(user_id, message):
+def AdminHandler(user_id, msg):
     if msg.lower().startswith(special_login):
         if login['is_logged'] == False:
             data = msg.split(';')

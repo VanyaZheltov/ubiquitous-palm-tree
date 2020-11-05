@@ -1,0 +1,223 @@
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+  }
+  
+  .dividerdiv{
+      display: flex;
+      align-items: center;
+      justify-content: center
+  }
+  .darktheme{
+      background: #1E1C1B;
+  }
+  .footer{
+      background: #1E0C1B;
+  }
+  .basement{
+    background: #1E0C1B;  
+  }
+  .icon{
+      width: 30px;
+      height: 30px;
+  }
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+  ::-webkit-scrollbar{
+      width:6px;
+  }
+  ::-webkit-scrollbar-thumb{
+      border-width:1px 1px 1px 2px;
+      border-color: #777;
+      background-color: #aaa;
+      }
+  ::-webkit-scrollbar-thumb:hover{
+      border-width: 1px 1px 1px 2px;
+      border-color: #555;
+      background-color: #777;
+  }
+  ::-webkit-scrollbar-track{
+      border-width:0;
+  }
+  ::-webkit-scrollbar-track:hover{
+      border-left: solid 1px #aaa;
+      background-color: #eee;
+  }
+  
+  @media screen and (min-width: 1240px)  {
+      #email{
+          width: 33%;
+      }
+      .headerimg{
+          width: 100%;
+          height: 30%;
+      }
+      .emaildiv{
+          padding-left: 40%;
+      }
+      #email-adress{
+          padding-left: 10%; 
+          padding-top: 5%;
+      }
+      #tooltiplabel{
+          padding-left: 1%; 
+      }
+      .buybutton{
+          margin-left: 40%;
+          width: 20%;
+      }
+  }
+  @media screen and (max-width: 768px) {
+      .headerimg{
+          width: 100%;
+          height: 50%;
+      }
+      #email{
+          width: 79%;
+      }
+      .emaildiv{
+          padding-left: 20%;
+      }
+      #email-adress{
+          padding-left: 20%; 
+          padding-top: 10%;
+      }
+      .buybutton{
+          margin-left: 20%;
+          width: 64%;
+      }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+      #email{
+          width: 33%;
+      }
+      .emaildiv{
+          padding-left: 35%;
+      }
+      #email-adress{
+          padding-left: 10%; 
+          padding-top: 5%;
+      }
+      #tooltiplabel{
+          padding-left: 1%; 
+      }
+      .buybutton{
+          margin-left: 40%;
+          width: 20%;
+      }
+  }
+  .carousel-inner {
+    width: 50%;
+    margin: auto;
+}
+img{
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.carousel-indicators{
+    margin-top: 0px;
+    padding-top: 0%;
+}
+p.desc{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+        /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+    
+    /* Carousel base class */
+    .carousel {
+        margin-bottom: 4rem;
+      }
+      /* Since positioning the image, we need to help out the caption */
+      .carousel-caption {
+        bottom: 3rem;
+        z-index: 10;
+      }
+      
+      /* Declare heights because of positioning of img element */
+      .carousel-item {
+        height: 32rem;
+      }
+      .carousel-item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 32rem;
+      }
+      
+      
+      /* MARKETING CONTENT
+      -------------------------------------------------- */
+      
+      /* Center align the text within the three columns below the carousel */
+      .marketing .col-lg-4 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      .marketing h2 {
+        font-weight: 400;
+      }
+      .marketing .col-lg-4 p {
+        margin-right: .75rem;
+        margin-left: .75rem;
+      }
+      
+      /* Featurettes
+      ------------------------- */
+      
+      .featurette-divider {
+        margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+      }
+      
+      /* Thin out the marketing headings */
+      .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -.05rem;
+      }
+      
+      
+      /* RESPONSIVE CSS
+      -------------------------------------------------- */
+      
+      @media (min-width: 40em) {
+        /* Bump up size of carousel content */
+        .carousel-caption p {
+          margin-bottom: 1.25rem;
+          font-size: 1.25rem;
+          line-height: 1.4;
+        }
+      
+        .featurette-heading {
+          font-size: 50px;
+        }
+      }
+      
+      @media (min-width: 62em) {
+        .featurette-heading {
+          margin-top: 7rem;
+        }
+      }
+
+.avatar{
+  border-radius: 50%;
+  height: 10%;
+  width: 10%;
+}

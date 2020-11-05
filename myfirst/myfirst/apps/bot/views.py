@@ -24,11 +24,15 @@ class Index(APIView):
         data = json.loads(request.body)
         if (data['secret'] == secret_key):# if json request contain secret key and it's equal my secret key
             if (data['type'] == 'confirmation'):# if VK server request confirmation
+                p = Log(event="confirmation")
+                p.save()
                 return HttpResponse(confirmation_token, content_type="text/plain", status=200)
             if (data['type'] == 'message_new'):
                 user_id = data['object']['user_id']
                 answer = get_answer(data['object']['body'])
                 write_main(user_id, answer)
+                p = Log(event="new message")
+                p.save()
                 return HttpResponse('ok', content_type="text/plain", status=200)
 
 class IndexAdmin(APIView):
