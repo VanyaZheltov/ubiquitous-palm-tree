@@ -13,34 +13,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700' rel='stylesheet' type='text/css'>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+  <script src="https://kit.fontawesome.com/b0c737396f.js" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/5a48b3f937.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link rel="stylesheet" href="{% static 'shop/css/index.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
 </head>
 <body style="height: 100%;" class="darktheme">
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{% url 'shop:index' %}">EnglishPush</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="javascript: document.location.href = 'https://vk.com/public198013200' ">VK</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'shop:posts' %}">Статьи</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#about">О нас</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand"  href="{% url 'shop:index' %}">
+          EnglishPush
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="javascript: document.location.href = 'https://vk.com/public198013200' "><i class="fa fa-vk"></i> Наша группа</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'shop:posts' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Статьи</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#about"><i class="fa fa-address-book" aria-hidden="true"></i> О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shop:index' %}#markethr"><i class="fas fa-shopping-cart"></i> Товары</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
     
 	{% block content %}{% endblock %}
 	<!-- VK Widget -->

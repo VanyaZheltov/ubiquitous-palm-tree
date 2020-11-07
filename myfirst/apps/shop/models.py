@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Item(models.Model):
     name = models.CharField('Наименование', max_length = 100)
@@ -30,7 +32,7 @@ class Article(models.Model):
         'auth.User',
         on_delete=models.CASCADE,
     )
-    preview = models.ImageField("Превью", upload_to="articles")
+    preview = models.ImageField("Превью", upload_to="articles", blank=True)
     pub_date = models.DateField("Время публикации", auto_now = True)
     class Meta:
         verbose_name = 'Статья'
@@ -40,3 +42,4 @@ class Article(models.Model):
 class ArticlePhotos(models.Model):
     image = models.ImageField(upload_to="articles")
     file = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="images") 
+

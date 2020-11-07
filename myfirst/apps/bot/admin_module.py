@@ -23,6 +23,17 @@ def write_main(user_id, message, keyboard=None, attachment=None):
 def write_admin(user_id, message, keyboard=None, attachment=None):
     vk_admin.method('messages.send', {'user_id': user_id, 'message': message,'keyboard': keyboard if keyboard != None else [],"attachment": attachment if attachment != None else None, 'random_id': random.randint(0,11111)})
 
+def mail(admin_id, msg):
+    user_items = [user for user in group.get_members_only_id()]
+    mail_users = 0 #Пользователи получившие рассылку
+    for user_id in user_items:
+        try:
+            write_msg(user_id, msg)
+            mail_users += 1
+        except:
+            print('Ошибка при отправке сообщения!')
+    write_admin(admin_id, f"Рассылка совершена! Пользователей получивших рассылку: {mail_users}")
+    mail_users = 0
 
 def get_username(user_id: int):
     user_get=vka.users.get(user_ids = (user_id))
@@ -64,17 +75,7 @@ def AdminHandler(user_id, msg):
         
     if last_event == "r" and len(msg) > 1:
         if msg.lower() not in cancelcommands: 
-            last_event = "msg"
-            user_items = [user for user in group.get_members_only_id()]
-            mail_users = 0 #Пользователи получившие рассылку
-            for user_id in user_items:
-                try:
-                    write_msg(user_id, msg)
-                    mail_users += 1
-                except:
-                    print('Ошибка при отправке сообщения!')
-            write_admin(event.user_id, f"Рассылка совершена! Пользователей получивших рассылку: {mail_users}")
-            mail_users = 0
+            mail(event.user_id, msg)
         else:
             write_admin(event.user_id, "Рассылка отменена!")
             last_event = "none"

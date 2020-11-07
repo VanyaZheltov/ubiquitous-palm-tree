@@ -23,8 +23,7 @@ class Result:
 def index(request):
     cards = Item.objects.all()
     slides = IndexSlide.objects.all()
-    lastposts = Article.objects.all()[:3]
-    
+    lastposts = Article.objects.all().order_by('-id')[:3]
     return render(request, 'shop/list.html', {'products': cards, 'slides': slides, 'posts': lastposts})
 	
 def form(request, pr_id):
